@@ -55,3 +55,13 @@ class DCMotors:
             else:
                 self.pca9685.set_pwm(a, 0, 0)
                 self.pca9685.set_pwm(b, 0, -speed)
+
+    def stopMotor(self, index):
+        self.pca9685.set_pwm(enMotors[index-1], 0, 0)
+        self.pca9685.set_pwm(enMotors[index-1]+1, 0,0)
+
+    def MotorStopAll(self):
+        self.stopMotor(1)
+        self.stopMotor(2)
+        self.stopMotor(3)
+        self.stopMotor(4)

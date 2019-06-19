@@ -133,3 +133,6 @@ class PCA9685(object):
             self.set_pwm(index, 4096, 0)
         else:
             self.set_pwm(index, 0, value)
+
+    def PWMOFF(self, index):
+        self.set_pwm(index, 0, 0)
