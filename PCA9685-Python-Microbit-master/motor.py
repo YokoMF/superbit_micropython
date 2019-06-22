@@ -25,14 +25,32 @@
 
 import PCA9685
 
+# M1 : 8. 9
+# M2 : 10, 11
+# M3 : 12, 13
+# M4 : 14, 15
 enMotors = (8, 10, 12, 14)
 
-
 class DCMotors:
-    def __init__(self, i2c, address=0x40, freq=50):   # 1600
+    def __init__(self, i2c, address=0x40, freq=50):
         self.pca9685 = PCA9685.PCA9685(i2c, address)
         self.pca9685.set_pwm_freq(freq)
 
+
+    # * Function      MotorRun(index, speed)
+    # * @author       wusicaijuan
+    # * @date         2019.06.22
+    # * @bried        控制某一直流电机，调节速度
+	#					  Control a DC motor, adjust the speed
+    # * @param[in1]   index
+    #                     1: M1
+    #                     2: M2
+    #                     3: M3
+    #                     4: M4
+    # * @param[in2]   speed
+    #                     speed > 0 : forward
+    #                     speed < 0 : reverse
+    # * @retval       void
     def MotorRun(self, index, speed):
         a = enMotors[index - 1]
         b = a + 1
@@ -57,10 +75,30 @@ class DCMotors:
                 self.pca9685.set_pwm(a, 0, 0)
                 self.pca9685.set_pwm(b, 0, -speed)
 
+
+    # * Function      stopMotor(index)
+    # * @author       wusicaijuan
+    # * @date         2019.06.22
+    # * @bried        控制某一直流电机停止转动
+	#					  Control a DC motor to stop rotating
+    # * @param[in]   index
+    #                     1: M1
+    #                     2: M2
+    #                     3: M3
+    #                     4: M4
+    # * @retval       void
     def stopMotor(self, index):
         self.pca9685.set_pwm(enMotors[index-1], 0, 0)
         self.pca9685.set_pwm(enMotors[index-1]+1, 0,0)
 
+
+    # * Function      MotorStopAll()
+    # * @author       wusicaijuan
+    # * @date         2019.06.22
+    # * @bried        全部直流电机停止转动
+	#					  All DC motors stop rotating
+    # * @param[in]	  void
+    # * @retval       void
     def MotorStopAll(self):
         self.stopMotor(1)
         self.stopMotor(2)

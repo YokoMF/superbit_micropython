@@ -22,6 +22,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+
 from microbit import sleep
 import PCA9685
 
@@ -37,6 +38,8 @@ STP_CHC_H = 3071
 STP_CHD_L = 3071
 STP_CHD_H = 1023
 
+# B1 : 11, 9, 10, 8
+# B2 : 12, 14, 13, 15
 enSteppers = (0x1, 0x2)
 
 # 1/4 = 90°
@@ -53,6 +56,7 @@ class Steppers:
     def __init__(self, i2c, address=0x40, freq=50):
         self.pca9685 = PCA9685.PCA9685(i2c, address)
         self.pca9685.set_pwm_freq(freq)
+
 
     def setStepper(self, index, dir: bool):
         if index == 0x1:
@@ -78,6 +82,7 @@ class Steppers:
                 self.pca9685.set_pwm(14, STP_CHC_L, STP_CHC_H)
                 self.pca9685.set_pwm(12, STP_CHD_L, STP_CHD_H)
 
+
     # * Function      StepperDegree(index, degree)
     # * @author       wusicaijuan
     # * @date         2019.06.22
@@ -102,6 +107,7 @@ class Steppers:
         self.pca9685.set_pwm(14, 0, 0)
         self.pca9685.set_pwm(13, 0, 0)
         self.pca9685.set_pwm(15, 0, 0)
+
 
     # * Function      StepperTurn(index, turn)
     # * @author       wusicaijuan

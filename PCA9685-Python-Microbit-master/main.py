@@ -40,10 +40,6 @@ s0 = servo.Servos(i2c)
 # sleep(1000)
 
 # 驱动步进电机
-'''
-StepperDegree()
-StepperTurn()
-'''
 step1 = stepper.Steppers(i2c)
 step1.StepperDegree(1, -90)
 sleep(1000)
