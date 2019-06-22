@@ -1,5 +1,6 @@
 # Copyright (c) 2019
 # Author: wusicaijuan/陈帅气
+# All rights reserved.
 #
 # Heavily based on 
 # https://github.com/adafruit/micropython-adafruit-pca9685/blob/master/pca9685.py

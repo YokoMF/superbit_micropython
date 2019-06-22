@@ -1,7 +1,8 @@
+# 在这里写上你的代码 :-)
 from microbit import sleep, i2c
 import PCA9685
 import servo
-import motor
+import stepper
 
 # Initialise the PCA9685 using the default address (0x40).
 # pwm = PCA9685.PCA9685(i2c)
@@ -34,9 +35,19 @@ s0 = servo.Servos(i2c)
 
 
 # 驱动电机
-m1 = motor.DCMotors(i2c)
-m1.MotorRun(1, 255)
+# m1 = motor.DCMotors(i2c)
+# m1.MotorRun(1, 255)
+# sleep(1000)
+
+# 驱动步进电机
+'''
+StepperDegree()
+StepperTurn()
+'''
+step1 = stepper.Steppers(i2c)
+step1.StepperDegree(1, -90)
 sleep(1000)
+step1.StepperTurn(1, 3)
 
 # pwm.set_pwm(11, 0, 4095)
 # pwm.set_pwm(10, 0, 0)
