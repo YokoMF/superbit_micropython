@@ -2,7 +2,7 @@
 from microbit import sleep, i2c
 import PCA9685
 import servo
-import stepper
+# import stepper
 
 # Initialise the PCA9685 using the default address (0x40).
 # pwm = PCA9685.PCA9685(i2c)
@@ -25,6 +25,35 @@ import stepper
 # 驱动舵机
 # Use servo helper class to move channel 0 by degrees
 s0 = servo.Servos(i2c)
+s0.Servo360(2, 1, 90)
+sleep(2000)
+s0.Servo360(2, 2, 90)
+sleep(2000)
+s0.Servo360(2, 3, 90)
+sleep(2000)
+#s0.Servo270(1, 0)
+#sleep(2000)
+#s0.Servo270(1, 90)
+#sleep(2000)
+#s0.Servo270(1, 180)
+#sleep(2000)
+#s0.Servo270(1, 270)
+#sleep(2000)
+#s0.Servo270(1, 180)
+#sleep(2000)
+#s0.Servo270(1, 90)
+#sleep(2000)
+#s0.Servo270(1, 0)
+#sleep(2000)
+#s0.Servo270(1, 270)
+#sleep(2000)
+
+
+#s0.position(0, 90)
+#sleep(1000)
+#s0.position(0, 180)
+#sleep(1000)
+# s0.release(0)
 # s0.position(4, 0)
 # s0.position(5, 0)
 # sleep(1000)
@@ -40,10 +69,10 @@ s0 = servo.Servos(i2c)
 # sleep(1000)
 
 # 驱动步进电机
-step1 = stepper.Steppers(i2c)
-step1.StepperDegree(1, -90)
-sleep(1000)
-step1.StepperTurn(1, 3)
+# step1 = stepper.Steppers(i2c)
+# step1.StepperDegree(1, -90)
+# sleep(1000)
+# step1.StepperTurn(1, 3)
 
 # pwm.set_pwm(11, 0, 4095)
 # pwm.set_pwm(10, 0, 0)

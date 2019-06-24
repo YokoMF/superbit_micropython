@@ -1,7 +1,8 @@
-# Copyright (c) 2016 Adafruit Industries
-# Author: Brian Norman
+# Copyright (c) 2019
+# Author: wusicaijuan/陈帅气
+# All rights reserved.
 #
-# Heavily based on 
+# Heavily based on
 # https://github.com/adafruit/micropython-adafruit-pca9685/blob/master/pca9685.py
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,45 +26,38 @@
 import PCA9685
 import math
 
-enPos = (1, 2, 3)
-
 enSoervo = (0, 1, 2, 3, 4, 5, 6, 7)
 
 
 class Servos:
-    def __init__(self, i2c, address=0x40, freq=50, min_us=600, max_us=2400,
-                 degrees=180):
-        self.period = 1000000 / freq
-        # self.min_duty = self._us2duty(min_us)
-        # self.max_duty = self._us2duty(max_us)
-        self.degrees = degrees
-        self.freq = freq
+    def __init__(self, i2c, address=0x40, freq=50):
         self.pca9685 = PCA9685.PCA9685(i2c, address)
         self.pca9685.set_pwm_freq(freq)
-    
-    def Servo1(self, index, degree:float):
+
+    def Servo180(self, index, degree: int):
+        us = float(degree*1800/180+600)
+        pwm = float(us*4096/20000)
+        self.pca9685.duty(enSoervo[index-1], int(pwm))
+
+    def Servo270(self, index, degree: int):
         newdegree = degree/1.5
-        us = newdegree*1800/180+600
-        pwm = us*4096/20000
-        self.pca9685.set_pwm(enSoervo[index-1], 0, pwm)
+        us = float(newdegree*1800/180+600)
+        pwm = float(us*4096/20000)
+        self.pca9685.duty(enSoervo[index-1], int(pwm))
 
-    # def _us2duty(self, value):
-    #     return int(4095 * value / self.period)
+    def Servo360(self, index, pos: int, value):
+        if pos == 1:
+            us = float(90*1800/180+600)
+            pwm = float(us*4096/20000)
+            self.pca9685.duty(enSoervo[index-1], int(pwm))
+        elif pos == 2:
+            us = float((90-value)*1800/180+600)
+            pwm = float(us*4096/20000)
+            self.pca9685.duty(enSoervo[index-1], int(pwm))
+        elif pos == 3:
+            us = float((90+value)*1800/180+600)
+            pwm = float(us*4096/20000)
+            self.pca9685.duty(enSoervo[index-1], int(pwm))
 
-    # def position(self, index, degrees=None, radians=None, us=None, duty=None):
-    #     span = self.max_duty - self.min_duty
-    #     if degrees is not None:
-    #         duty = self.min_duty + span * degrees / self.degrees
-    #     elif radians is not None:
-    #         duty = self.min_duty + span * radians / math.radians(self.degrees)
-    #     elif us is not None:
-    #         duty = self._us2duty(us)
-    #     elif duty is not None:
-    #         pass
-    #     else:
-    #         return self.pca9685.duty(index)
-    #     duty = min(self.max_duty, max(self.min_duty, int(duty)))
-    #     self.pca9685.duty(index, duty)
-
-    # def release(self, index):
-    #     self.pca9685.duty(index, 0)
+    def release(self, index):
+        self.pca9685.duty(index, 0)
