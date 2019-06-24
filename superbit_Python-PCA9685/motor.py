@@ -87,9 +87,11 @@ class DCMotors:
     #                     3: M3
     #                     4: M4
     # * @retval       void
-    def stopMotor(self, index):
-        self.pca9685.set_pwm(enMotors[index-1], 0, 0)
-        self.pca9685.set_pwm(int(enMotors[index-1])-1, 0,0)
+    def StopMotor(self, index):
+        a = enMotors[index - 1]
+        b = a + 1
+        self.pca9685.set_pwm(a, 0, 0)
+        self.pca9685.set_pwm(b, 0, 0)
 
 
     # * Function      MotorStopAll()
