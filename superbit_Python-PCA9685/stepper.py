@@ -57,7 +57,6 @@ class Steppers:
         self.pca9685 = PCA9685.PCA9685(i2c, address)
         self.pca9685.set_pwm_freq(freq)
 
-
     def setStepper(self, index, dir: bool):
         if index == 0x1:
             if dir:
@@ -81,7 +80,6 @@ class Steppers:
                 self.pca9685.set_pwm(13, STP_CHB_L, STP_CHB_H)
                 self.pca9685.set_pwm(14, STP_CHC_L, STP_CHC_H)
                 self.pca9685.set_pwm(12, STP_CHD_L, STP_CHD_H)
-
 
     # * Function      StepperDegree(index, degree)
     # * @author       wusicaijuan
@@ -107,7 +105,6 @@ class Steppers:
         self.pca9685.set_pwm(14, 0, 0)
         self.pca9685.set_pwm(13, 0, 0)
         self.pca9685.set_pwm(15, 0, 0)
-
 
     # * Function      StepperTurn(index, turn)
     # * @author       wusicaijuan

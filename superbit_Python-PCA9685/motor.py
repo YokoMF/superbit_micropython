@@ -89,7 +89,7 @@ class DCMotors:
     # * @retval       void
     def stopMotor(self, index):
         self.pca9685.set_pwm(enMotors[index-1], 0, 0)
-        self.pca9685.set_pwm(enMotors[index-1]+1, 0,0)
+        self.pca9685.set_pwm(int(enMotors[index-1])-1, 0,0)
 
 
     # * Function      MotorStopAll()

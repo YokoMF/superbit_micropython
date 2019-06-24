@@ -1,6 +1,6 @@
-# Microbit Python Driver for PCA9685
+# Superbit Microbit Python Driver for PCA9685
 
-A simple python class for using the PCA9685 16-Channel 12-bit PWM/Servo Driver - I2C interface (https://www.adafruit.com/product/815).
+A simple python class for using the Superbit for PCA9685.
 
 #### Using the driver
 
@@ -20,11 +20,3 @@ There is now a servo helper class in servo.py based on https://github.com/adafru
 #### Acknowledgement
 
 This driver is adapted from Tony DiCola's driver at https://github.com/adafruit/Adafruit_Python_PCA9685/blob/master/Adafruit_PCA9685/PCA9685.py
-
-#### Contributing
-
-I am an experienced software developer but very new to Python and I2C. There are bound to be many improvements that could be made to the basic code as well as new helper classes. If you wish to contribute feel free to send PR's and chat to me on http://microbit-community.slack.com username 'MicroMonsters'.
-
-#### Finally
-
-Don't forget to check our youtube channel http://youtube.com/c/micromonsters to find inspiration using the microbit to code with your children.
