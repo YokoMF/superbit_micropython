@@ -41,7 +41,7 @@ class DCMotors:
     # * @author       wusicaijuan
     # * @date         2019.06.22
     # * @bried        控制某一直流电机，调节速度
-	#					  Control a DC motor, adjust the speed
+	# 					Control a DC motor, adjust the speed
     # * @param[in1]   index
     #                     1: M1
     #                     2: M2
@@ -80,7 +80,7 @@ class DCMotors:
     # * @author       wusicaijuan
     # * @date         2019.06.22
     # * @bried        控制某一直流电机停止转动
-	#					  Control a DC motor to stop rotating
+	# 					Control a DC motor to stop rotating
     # * @param[in]   index
     #                     1: M1
     #                     2: M2
@@ -98,7 +98,7 @@ class DCMotors:
     # * @author       wusicaijuan
     # * @date         2019.06.22
     # * @bried        全部直流电机停止转动
-	#					  All DC motors stop rotating
+	# 					All DC motors stop rotating
     # * @param[in]	  void
     # * @retval       void
     def MotorStopAll(self):
