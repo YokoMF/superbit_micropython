@@ -3,9 +3,6 @@ BSD 3-Clause License
 Copyright (c) 2019, 五丝菜卷/wusicaijuan
 All rights reserved.
 
-Heavily based on
-https://github.com/adafruit/micropython-adafruit-pca9685/blob/master/pca9685.py
-
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
