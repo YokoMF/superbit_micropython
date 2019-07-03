@@ -9,6 +9,8 @@
 
   希望有一天我也能强到被叫一声大佬
 
+  探索精神还是要有的
+
 # License
 
   Copyright (c) Wusicaijuan. All rights reserved.
