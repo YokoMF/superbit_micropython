@@ -1,5 +1,8 @@
 # superbit_micropython
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 6705511... Update README.md
   wusicaijuan(五丝菜卷)和陈帅气是同一个人
   
   一个能打的都没有
